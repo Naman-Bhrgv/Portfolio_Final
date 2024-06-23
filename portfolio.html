@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Naman Portfolio</title>
+    <style>
+        a:link {
+            color: #0000EE;
+                }
+
+        a:visited {
+            color: #0000EE;
+                }
+
+        @font-face {
+            font-family: 'Cofo Sans';
+            src: url('fonts/CofoSans-Regular.woff2') format('woff2'),
+                 url('fonts/CofoSans-Regular.woff') format('woff'),
+                 url('fonts/CofoSans-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Cofo Sans';
+            margin: 0; /* Remove default margin */
+            background-color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        .container-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .custom-textbox {
+            width: 300px;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #1D1836;
+            border: 2px solid #1D1836;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .small-hr {
+            width: 100px;
+            height: 2px;
+            background-color: black;
+            border: none;
+            margin: 5px 0;
+        }
+
+        .hrbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 120px;
+            height: 40px;
+            background-color: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .box:hover {
+            background-color: #E6E6FA;
+            transition: background-color 0.5s;
+        }
+
+        .spcontent {
+            display: none;
+            margin-top: 20px;
+            flex: 1 1 auto;  /*grow vertically*/
+        }
+
+        .spcontent.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            border-top: 1px solid #ccc;
+        }
+
+        .workexp {
+            display: none;
+        }
+
+        .workexp.active {
+            display: block;
+            flex: 1 1 auto;  /*grow vertically*/
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 80%;
+            min-height: 200vh;
+        }
+
+        .line {
+            width: 1px;
+            background-color: black;
+            height: 98%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2; /* Higher z-index to be above textboxes */
+        }
+
+        .textbox {
+            width: 45%;
+            padding: 5px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            background-color: #E6E6FA;
+            border: none;
+            position: absolute;
+            z-index: 1; /* Higher z-index to be above textboxes */
+        }
+
+        .left {
+            left: 5%;
+        }
+
+        .right {
+            right: 5%;
+        }
+
+        .container_pro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+        }
+
+        .textbox_pro {
+            width: 40%;
+            padding: 20px;
+            margin: 20px;
+            box-sizing: border-box;
+            background-color: #E6E6FA;
+            border: none;
+        }
+
+        .row_pro {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .container_s {
+            display: flex;
+            align-items: center;
+        }
+
+        .text-content_s {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .text-content_s h1 {
+            margin-top: 0;
+        }
+
+        .image_s {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .small-hr_s {
+            width: 50px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <center>
+        <div class="container_s">
+            <div class="text-content_s">
+                <h1>Naman Bhargava</h1>
+                <hr class="small-hr_s">
+                <p style="font-family: helvetica; color: #000000;">
+                    <i>
+                        I am Naman Bhargava, Master of Data Science candidate at the University of Michigan-Ann Arbor. My journey in Data Science has crisscrossed through different fields such as Remote Sensing and Chemistry. This has given me experience in structuring Domain problem for data-driven solution, collaborating with and communicating results to non-technical stakeholders and utilizing state-of-the-art machine learning techniques and large language models.
+                    </i>
+                </p>
+            </div>
+            <div class="image_s">
+                <br><br>
+                <img src="img_1.jpg" alt="Image description">
+            </div>
+        </div>
+        <br><br>
+        <div class="hrbox">
+            <div class="box" onclick="showContent(0)"> <a href="#!" class="link"> Work Experience </a></div>
+            <div class="box" onclick="showContent(1)"> <a href="#!" class="link"> Projects </a></div>
+            <div class="box" onclick="showContent(2)"> <a href="#!" class="link"> Technical Skills </a></div>
+            <div class="box"> <a href="try_2.html" class="link"> Resume </a></div>
+        </div>
+
+<!-- Work Experience -->
+<div id="content0" class="workexp active">
+    <br><br>
+    <div class="container">
+        <div class="line"></div>
+        <div class="textbox left" style="top: 2.5%;">
+            <h3 align="left">AIMS Lab, University of Michigan- Ann Arbor</h3>
+            <h4 align="left">Graduate Student Research Assistant</h4>
+            <p align="left">
+            Objective - To analyze sentiment of United States public towards Nuclear Energy using twitter.<br><br>
+            Developed automated data mining pipeline to extract tweets related to Nuclear Engineering using the Twitter V2 API.<br>
+            Leveraged BART model to cluster and analyze discussion themes regarding nuclear engineering.<br>
+            Fine-tuned Large Language Models using QLoRA on a multi-GPU architecture, enhancing performance by 30% compared to the zero-shot model.<br>
+            <b>Skills-</b> Pytorch, twitter apiv2, Large Language Models, Huggingface, BART
+            </p>
+        </div>
+        <div class="textbox right" style="top: 29%;">
+            <h3 align="left">Indian Institute of Technology,Roorkee</h3>
+            <h4 align="left">Undergraduate Research Intern</h4>
+            <p align="left">
+            Objective - To detect anomaly in wheat crop growth within the first five weeks of sowing.<br><br>
+            Extracted over 300 statistical and temporal features from the time series of crop vegetation indices and selected the 20 most important features.<br>
+            Compared performance of different machine learning algorithms for anomaly classification, with XGBoost achieving the highest accuracy of 80%.<br>
+            Additionally, developed an end-to-end yield prediction system using Support Vector Machine model, deployed as a MATLAB application.<br>
+            <b>Skills-</b> Time Series Analysis, scikit learn, Xgboost, MATLAB
+            </p>
+        </div>
+        <div class="textbox left" style="top: 56%;">
+            <h3 align="left">Institute of Mathematical Sciences,Chennai</h3>
+            <h4 align="left">Summer Intern</h4>
+            <p align="left">
+            Objective - Analyze risk of chemicals used in daily products and medicines entering maternal milk.<br><br>
+            Created dataset of 375 chemicals by aggregating structural and molecular properties using various open-source software and Python libraries.<br>
+            Developed Support Vector Machine model boasting an accuracy of 77.33% and a specificity of 84%.<br>
+            <b>Skills-</b> Microsoft Excel, PaDEL, scikit-learn, tensorflow
+            </p>
+        </div>
+        <div class="textbox right" style="top:76%;">
+            <h3 align="left">Indian Institute of Technology,Roorkee</h3>
+            <h4 align="left">Undergraduate Research Intern</h4>
+            <p align="left">
+            Objective- Predict the fertility of agricultural land using remote sensing data collected from Sentinel-1. <br><br>
+            Built XGBoost model to estimate the vegetation cover of agricultural land for wheat and sugarcane crops with an RMSE of .<br>
+            Employed forward feature selection technique, identifying five most important features which significantly reduced prediction time over large agricultural fields.<br>
+            <b>Skills-</b> SNAP, python, scikit-learn
+            </p>
+        
+        </div>
+        
+        
+    </div>
+    <br><br><br><br><br>
+</div>
+
+<div id="content1" class="spcontent">
+
+    <div class="container_pro">
+        <div class="row_pro">
+            <div class="textbox_pro">
+                <b>Kaggle Forecaster</b><br>
+                Objective- To analyze the future contributions at Kaggle platform using time series analysis. <br>
+                Developed a SARIMA Time Series Analysis model with MAPE of 11%. <br>
+                Used Factory and Adapter pattern to optimize the data extraction and prediction pipeline, improving code maintainability by 46.18% and reduced its complexity by 73.5%. 
+            </div>
+            <div class="textbox_pro">
+                <b>Travel Assistant</b><br>
+                Objective- Generate optimal route and travel itinerary from location image  <br>
+                Extracted coordinates of image location using Google Gemini vision API<br>
+                Integrated Google Maps to generate route to the coordinates<br>
+                Built a chatbot using Google Gemini to create a customized travel itinerary to location based on user prefrences
+
+            </div>
+        </div>
+        <br><br><br>
+        
+        <div class="row_pro">
+            <center>
+            <div class="textbox_pro">
+                <b>Soccer Analytics</b><br>
+                Objective- To analyze the performance of players in European Football leagues. <br>
+                Developed an interactive dashboard for analyzing player performance and event distribution in soccer leagues <br>
+                Implemented multiple filter options for users to customize the analysis based on league, game, players, and specific events, from a dataset containing more than 30,00,000 entries.
+            </div>
+            </center>
+            
+        </div>
+        <br><br><br><br><br>
+    </div>
+</div>
+
+<!-- Technical Skills -->
+<div id="content2" class="spcontent">
+    <b>Language:</b> SQL, Python, R, MATLAB <br><br><br>
+    <b>Big Data & Analytics:</b> Databricks, Tableau, Matplotlib, seaborn, Microsoft Powerapps <br><br><br>
+    <b>Machine Learning & NLP:</b> Huggingface, Tensorflow, Pytorch, scikit-learn, langchain, nltk
+    <br><br><br><br><br>
+</div>
+
+<script>
+let currentContentIndex = 0;
+
+function showContent(index) {
+    document.getElementById(`content${currentContentIndex}`).classList.remove('active');
+    document.getElementById(`content${index}`).classList.add('active');
+    currentContentIndex = index;
+}
+</script>
+
+<footer>
+    <p>Contact us: <a href="namanb@umich.edu">namanb@umich.edu</a></p>
+    <div>
+        <a href="https://github.com/Naman-Bhrgv">
+            <img src="github_logo.png" alt="GitHub" width="25" height="25">
+        </a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/naman-bhargava-2702000/">
+            <img src="linkedin_logo.png" alt="LinkedIn" width="25" height="25">
+        </a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://public.tableau.com/app/profile/naman.bhargava7594/vizzes/">
+            <img src="tableau_logo.png" alt="Tableau" width="25" height="25">
+        </a>
+    </div>
+</footer>
+
+</center>
+</body>
+</html>
